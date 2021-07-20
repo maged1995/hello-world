@@ -7,16 +7,12 @@ jobs:
     steps:
       - run: mkdir /tmp/workspaces
       - run: echo "text to output here" > output.txt
-      - persist_to_workspace:
-          root: /tmp/workspaces
-          paths:
-            - output.txt
+      - persist_to_workspace
   print_output_file:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - attach_workspace:
-          at: /tmp/workspaces
+      - attach_workspace
       - run: cat output.txt
   print_name:
     docker:

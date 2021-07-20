@@ -15,9 +15,7 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - attach_workspace:
-          root: ~/
-          paths:
-            - output.txt
+          at: ~/
       - run: echo "text to output here" > output.txt
   print_name:
     docker:

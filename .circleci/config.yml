@@ -34,6 +34,18 @@ jobs:
     <<: *mag_settings
     steps:
       - run: echo $PersonName
+  fail:
+    <<: *mag_settings
+    steps:
+      - run: return 1
+      - run:
+          name: Upload Failed Tests
+          command: echo Oh Ooh, there isn't a failsafe
+          when: on_fail
+  fail_safe:
+    <<: *mag_settings
+    steps:
+      - run: echo Oh Ooh, there isn't
 workflows:
   main:
     jobs:
@@ -45,3 +57,6 @@ workflows:
       - print_name:
           requires:
             - main_job
+      - fail:
+          requires:
+            - print_name

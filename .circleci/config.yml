@@ -40,12 +40,12 @@ jobs:
       - run: return 1
       - run:
           name: Upload Failed Tests
-          command: echo Oh Ooh, there isn't a failsafe
+          command: echo "Oh Ooh, there isn't a failsafe"
           when: on_fail
   fail_safe:
     <<: *mag_settings
     steps:
-      - run: echo "Oh Ooh, there isn't"
+      - run: echo Oh Ooh, there isn't
 workflows:
   main:
     jobs:

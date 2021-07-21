@@ -45,7 +45,7 @@ jobs:
   fail_safe:
     <<: *mag_settings
     steps:
-      - run: echo Oh Ooh, there isn't
+      - run: echo "Oh Ooh, there isn't"
 workflows:
   main:
     jobs:
